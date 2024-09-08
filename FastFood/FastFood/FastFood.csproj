@@ -67,7 +67,119 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Category.aspx" />
+    <Content Include="Admin\CategoryForm.aspx" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\Error.aspx" />
+    <Content Include="assets\css\animate.css\css\animate.css" />
+    <Content Include="assets\css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\css\jquery.mCustomScrollbar.css" />
+    <Content Include="assets\css\morris.js\css\morris.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\icon\icofont\css\icofont.css" />
+    <Content Include="assets\icon\icofont\fonts\icofont.svg" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.svg" />
+    <Content Include="assets\icon\themify-icons\themify-icons.css" />
+    <Content Include="assets\images\auth\logo-dark.png" />
+    <Content Include="assets\images\auth\Logo-small-bottom.png" />
+    <Content Include="assets\images\auth\logo.png" />
+    <Content Include="assets\images\avatar-1.jpg" />
+    <Content Include="assets\images\avatar-2.jpg" />
+    <Content Include="assets\images\avatar-3.jpg" />
+    <Content Include="assets\images\avatar-4.jpg" />
+    <Content Include="assets\images\bg.jpg" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\flags\ENGLISH.jpg" />
+    <Content Include="assets\images\flags\FRANCE.jpg" />
+    <Content Include="assets\images\flags\PORTO.jpg" />
+    <Content Include="assets\images\flags\SPAIN.jpg" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\mega-menu\01.jpg" />
+    <Content Include="assets\images\mega-menu\02.jpg" />
+    <Content Include="assets\images\mega-menu\03.jpg" />
+    <Content Include="assets\images\mega-menu\04.jpg" />
+    <Content Include="assets\images\mega-menu\05.jpg" />
+    <Content Include="assets\images\mega-menu\06.jpg" />
+    <Content Include="assets\images\pattern2.jpg" />
+    <Content Include="assets\images\user.png" />
+    <Content Include="assets\js\bootstrap-growl.min.js" />
+    <Content Include="assets\js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\js\classie.js" />
+    <Content Include="assets\js\classie\classie.js" />
+    <Content Include="assets\js\common-pages.js" />
+    <Content Include="assets\js\demo-12.js" />
+    <Content Include="assets\js\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="assets\js\jquery-ui\jquery-ui.min.js" />
+    <Content Include="assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="assets\js\jquery.mousewheel.min.js" />
+    <Content Include="assets\js\jquery\jquery.min.js" />
+    <Content Include="assets\js\modernizr\css-scrollbars.js" />
+    <Content Include="assets\js\modernizr\modernizr.js" />
+    <Content Include="assets\js\morris.js\morris.js" />
+    <Content Include="assets\js\pcoded.min.js" />
+    <Content Include="assets\js\popper.js\popper.min.js" />
+    <Content Include="assets\js\raphael\raphael.min.js" />
+    <Content Include="assets\js\script.js" />
+    <Content Include="assets\js\script.min.js" />
+    <Content Include="assets\js\SmoothScroll.js" />
+    <Content Include="assets\pages\accordion\accordion.js" />
+    <Content Include="assets\pages\accordion\accordion.min.js" />
+    <Content Include="assets\pages\chart\morris\morris-custom-chart.js" />
+    <Content Include="assets\pages\dashboard\amchart\css\amchart.css" />
+    <Content Include="assets\pages\dashboard\amchart\css\export.css" />
+    <Content Include="assets\pages\dashboard\amchart\js\amcharts.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\custom-amchart.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\export.min.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\images\dragIconRoundBig.svg" />
+    <Content Include="assets\pages\dashboard\amchart\js\images\dragIconRoundBigH.svg" />
+    <Content Include="assets\pages\dashboard\amchart\js\light.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\serial.js" />
+    <Content Include="assets\pages\dashboard\custom-dashboard.js" />
+    <Content Include="assets\pages\google-maps\gmaps.min.js" />
+    <Content Include="assets\pages\google-maps\jquery.gmaps.js" />
+    <Content Include="assets\pages\icon-modal.js" />
+    <Content Include="assets\pages\notification\notification.css" />
+    <Content Include="assets\pages\notification\notification.js" />
+    <Content Include="assets\pages\todo\todo.js" />
+    <Content Include="assets\pages\widget\amchart\amcharts.js" />
+    <Content Include="assets\pages\widget\amchart\amcharts.min.js" />
+    <Content Include="assets\pages\widget\amchart\ammap.js" />
+    <Content Include="assets\pages\widget\amchart\ammap.min.js" />
+    <Content Include="assets\pages\widget\amchart\continentsLow.js" />
+    <Content Include="assets\pages\widget\amchart\continentsLow.min.js" />
+    <Content Include="assets\pages\widget\amchart\gauge.js" />
+    <Content Include="assets\pages\widget\amchart\gauge.min.js" />
+    <Content Include="assets\pages\widget\amchart\light.js" />
+    <Content Include="assets\pages\widget\amchart\light.min.js" />
+    <Content Include="assets\pages\widget\amchart\pie.js" />
+    <Content Include="assets\pages\widget\amchart\pie.min.js" />
+    <Content Include="assets\pages\widget\amchart\serial.js" />
+    <Content Include="assets\pages\widget\amchart\serial.min.js" />
+    <Content Include="assets\pages\widget\amchart\worldLow.js" />
+    <Content Include="assets\pages\widget\amchart\worldLow.min.js" />
+    <Content Include="Contents\bootstrap-grid.css" />
+    <Content Include="Contents\bootstrap-grid.min.css" />
+    <Content Include="Contents\bootstrap-grid.rtl.css" />
+    <Content Include="Contents\bootstrap-grid.rtl.min.css" />
+    <Content Include="Contents\bootstrap-reboot.css" />
+    <Content Include="Contents\bootstrap-reboot.min.css" />
+    <Content Include="Contents\bootstrap-reboot.rtl.css" />
+    <Content Include="Contents\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Contents\bootstrap-utilities.css" />
+    <Content Include="Contents\bootstrap-utilities.min.css" />
+    <Content Include="Contents\bootstrap-utilities.rtl.css" />
+    <Content Include="Contents\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Contents\bootstrap.css" />
+    <Content Include="Contents\bootstrap.min.css" />
+    <Content Include="Contents\bootstrap.rtl.css" />
+    <Content Include="Contents\bootstrap.rtl.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="TemplateFiles\css\bootstrap.css" />
     <Content Include="TemplateFiles\css\font-awesome.min.css" />
     <Content Include="TemplateFiles\css\responsive.css" />
@@ -99,6 +211,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CategoryForm.aspx.cs">
+      <DependentUpon>CategoryForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CategoryForm.aspx.designer.cs">
+      <DependentUpon>CategoryForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,6 +294,29 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="assets\icon\icofont\fonts\icofont.eot" />
+    <Content Include="assets\icon\icofont\fonts\icofont.ttf" />
+    <Content Include="assets\icon\icofont\fonts\icofont.woff" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.eot" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.ttf" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.woff" />
+    <Content Include="Contents\bootstrap-grid.css.map" />
+    <Content Include="Contents\bootstrap-grid.min.css.map" />
+    <Content Include="Contents\bootstrap-grid.rtl.css.map" />
+    <Content Include="Contents\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Contents\bootstrap-reboot.css.map" />
+    <Content Include="Contents\bootstrap-reboot.min.css.map" />
+    <Content Include="Contents\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Contents\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Contents\bootstrap-utilities.css.map" />
+    <Content Include="Contents\bootstrap-utilities.min.css.map" />
+    <Content Include="Contents\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Contents\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Contents\bootstrap.css.map" />
+    <Content Include="Contents\bootstrap.min.css.map" />
+    <Content Include="Contents\bootstrap.rtl.css.map" />
+    <Content Include="Contents\bootstrap.rtl.min.css.map" />
     <None Include="packages.config" />
     <Content Include="TemplateFiles\css\style.css.map" />
     <Content Include="TemplateFiles\css\style.scss" />
@@ -154,6 +324,12 @@
     <Content Include="TemplateFiles\fonts\fontawesome-webfont.woff" />
     <Content Include="TemplateFiles\fonts\fontawesome-webfont.woff2" />
     <Content Include="User\User.Master" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,8 +338,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\Image\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{16ba8de7-1ed6-4f57-930f-7e2cf6618f43}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{82bac7b0-1816-4a78-917d-82891ac62eac}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
