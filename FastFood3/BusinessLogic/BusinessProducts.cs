@@ -180,72 +180,129 @@ namespace BusinessLogic
             }
         }
 
-        //----------------------------------
 
-        //public List<CategoryD> AdvancedFilter(string field, string criterion, string filter, string state)
-        //{
-        //    List<CategoryD> listCategories = new List<CategoryD>();
+        public List<Product> AdvancedFilter(string field, string criterion, string filter, string state)
+        {
+            List<Product> listProducts = new List<Product>();
 
-        //    try
-        //    {
-        //        string consult = "Select CategoryId, Name, ImageUrl, IsActive, CreatedDate from Categories Where";
+            try
+            {
+                string consult = "Select ProductId,P.Name, Description, Price, Quantity, P.ImageUrl, P.IsActive,  P.CreatedDate, C.Name Category from Products P, Categories C Where P.CategoryId = C.CategoryId And";
 
-        //        switch (field)
-        //        {
-        //            case "Name":
+                switch (field)
+                {
+                    case "Name":
 
-        //                switch (criterion)
-        //                {
-        //                    case "Starts with":
-        //                        consult += " Name like " + "'" + filter + "%'";
-        //                        break;
-        //                    case "Ends with":
-        //                        consult += " Name like " + "'%" + filter + "'";
-        //                        break;
-        //                    case "Contains":
-        //                        consult += " Name like " + "'%" + filter + "%'";
-        //                        break;
-        //                }
-        //                break;
+                        switch (criterion)
+                        {
+                            case "Starts with":
+                                consult += " P.Name like " + "'" + filter + "%'";
+                                break;
+                            case "Ends with":
+                                consult += " P.Name like " + "'%" + filter + "'";
+                                break;
+                            case "Contains":
+                                consult += " P.Name like " + "'%" + filter + "%'";
+                                break;
+                        }
+                        break;
 
-        //            default:
-        //                break;
-        //        }
+                    case "Description":
 
-        //        if (state == "Active")
-        //            consult += " And IsActive = 1";
-        //        else if (state == "Inactive")
-        //            consult += " And IsActive = 0";
+                        switch (criterion)
+                        {
+                            case "Starts with":
+                                consult += " Description like " + "'" + filter + "%'";
+                                break;
+                            case "Ends with":
+                                consult += " Description like " + "'%" + filter + "'";
+                                break;
+                            case "Contains":
+                                consult += " Description like " + "'%" + filter + "%'";
+                                break;
+                        }
+                        break;
+                    case "Price":
 
-        //        data.setConsult(consult);
-        //        data.executeRead();
+                        switch (criterion)
+                        {
+                            case "Greater than":
+                                consult += " Price > " + filter;
+                                break;
+                            case "Less than":
+                                consult += " Price < " + filter;
+                                break;
+                            case "Equal to":
+                                consult += " Price = " + filter;
+                                break;
+                        }
+                        break;
+                    case "Quantity":
 
-        //        while (data.Read.Read())
-        //        {
-        //            CategoryD auxProduct = new CategoryD();
+                        switch (criterion)
+                        {
+                            case "Greater than":
+                                consult += " Quantity > " + filter;
+                                break;
+                            case "Less than":
+                                consult += " Quantity < " + filter;
+                                break;
+                            case "Equal to":
+                                consult += " Quantity = " + filter;
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
 
-        //            auxProduct.CategoryId = (int)data.Read["CategoryId"];
-        //            if (!(data.Read["Name"] is DBNull))
-        //                auxProduct.Name = (string)data.Read["Name"];
-        //            if (!(data.Read["ImageUrl"] is DBNull))
-        //                auxProduct.ImageUrl = (string)data.Read["ImageUrl"];
-        //            if (!(data.Read["IsActive"] is DBNull))
-        //                auxProduct.IsActive = bool.Parse(data.Read["IsActive"].ToString());
-        //            if (!(data.Read["CreatedDate"] is DBNull))
-        //                auxProduct.CreatedDate = DateTime.Parse(data.Read["CreatedDate"].ToString());
+                if (state == "Active")
+                    consult += " And P.IsActive = 1";
+                else if (state == "Inactive")
+                    consult += " And P.IsActive = 0";
 
-        //            listCategories.Add(auxProduct);
-        //        }
+                data.setConsult(consult);
+                data.executeRead();
+
+                while (data.Read.Read())
+                {
+                    Product auxProduct = new Product();
+
+                    auxProduct.ProductId = (int)data.Read["ProductId"];
+                    if (!(data.Read["Name"] is DBNull))
+                        auxProduct.Name = (string)data.Read["Name"];
+                    if (!(data.Read["Description"] is DBNull))
+                        auxProduct.Description = (string)data.Read["Description"];
+                    if (!(data.Read["Price"] is DBNull))
+                        auxProduct.Price = (decimal)data.Read["Price"];
+                    if (!(data.Read["Quantity"] is DBNull))
+                        auxProduct.Quantity = (int)data.Read["Quantity"];
+
+                    if (!(data.Read["ImageUrl"] is DBNull))
+                        auxProduct.ImageUrl = (string)data.Read["ImageUrl"];
+                    if (!(data.Read["IsActive"] is DBNull))
+                        auxProduct.IsActive = bool.Parse(data.Read["IsActive"].ToString());
+                    if (!(data.Read["CreatedDate"] is DBNull))
+                        auxProduct.CreatedDate = DateTime.Parse(data.Read["CreatedDate"].ToString());
+
+                    if (!(data.Read["Category"] is DBNull))
+                    {
+                        auxProduct.Category = new CategoryD();
+                        auxProduct.Category.Name = (string)data.Read["Category"];
+                    }
 
 
-        //        return listCategories;
+                    listProducts.Add(auxProduct);
+                }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+                return listProducts;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public void DeleteWithSP(Product deleteProduct)
         {

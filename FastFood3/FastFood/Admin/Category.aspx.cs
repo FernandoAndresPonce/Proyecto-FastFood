@@ -140,19 +140,5 @@ namespace FastFood.Admin
             }
         }
 
-        protected void dgvProducts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void dgvProducts_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

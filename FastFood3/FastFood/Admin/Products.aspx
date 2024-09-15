@@ -1,17 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="FastFood.Admin.Products" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <style>
         .grid {
             text-align: center;
             background-position: center;
             background-size: cover;
+        }
+
+        .validacion {
+            color: #ff0000;
+            font-size: 10px;
         }
     </style>
 
@@ -23,8 +29,6 @@
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
 
-                            <%--Problema de busqueda, cuando intento buscar ejecutando el boton enter, se buggea y no me deja realizar dicha busqueda.--%>
-
                             <div>
                                 <asp:TextBox ID="txtFastFilter" placeholder="Product quick search..." AutoPostBack="true" OnTextChanged="txtFastFilter_TextChanged" CssClass="form-control" runat="server" />
                                 <br />
@@ -35,7 +39,7 @@
                             <%-----------------------------------%>
 
 
-                     <%--       <%if (FilterAdvanced)
+                            <%if (FilterAdvanced)
                                 { %>
                             <div class="row">
                                 <div class="col-3">
@@ -45,6 +49,9 @@
                                         <asp:DropDownList CssClass="form-control" runat="server" ID="ddlField" OnSelectedIndexChanged="ddlField_SelectedIndexChanged" AutoPostBack="true">
                                             <asp:ListItem Text="[Selection]" />
                                             <asp:ListItem Text="Name" />
+                                            <asp:ListItem Text="Description" />
+                                            <asp:ListItem Text="Price" />
+                                            <asp:ListItem Text="Quantity" />
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -59,6 +66,14 @@
                                 <div class="col-3">
                                     <div class="mb-3">
                                         <asp:Label Text="Filter" runat="server" />
+                                        <%  if (ddlField.SelectedValue.ToString() == "Price")
+                                            {%>
+                                        <asp:RequiredFieldValidator ErrorMessage="(Required a Price)" CssClass="validacion" ControlToValidate="txtAdvancedFilter" runat="server" ID="rfValidator" />
+                                        <%} %>
+                                         <%  if (ddlField.SelectedValue.ToString() == "Quantity")
+                                            {%>
+                                        <asp:RequiredFieldValidator ErrorMessage="(Required a Quantity)" CssClass="validacion" ControlToValidate="txtAdvancedFilter" runat="server" ID="RequiredFieldValidator1" />
+                                        <%} %>
                                         <asp:TextBox runat="server" ID="txtAdvancedFilter" CssClass="form-control" />
                                     </div>
                                 </div>
@@ -84,7 +99,7 @@
                             </div>
 
 
-                            <%} %>--%>
+                            <%} %>
 
 
                             <asp:GridView ID="dgvProducts" CssClass="table grid" runat="server" AutoGenerateColumns="False"
@@ -115,7 +130,7 @@
 
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <asp:Button Text="Add" ID="btnAdd" CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" />
-                    </div>         
+                    </div>
                 </div>
             </div>
         </div>
