@@ -71,6 +71,11 @@
     <Content Include="Admin\CategoryForm.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Error.aspx" />
+    <Content Include="Admin\Image\editar-imagen.png" />
+    <Content Include="Admin\Image\editdocument_105148.png" />
+    <Content Include="Admin\Image\nota.png" />
+    <Content Include="Admin\Image\placeholder\placeholder.jpg" />
+    <Content Include="Admin\Image\writing_4055704 %281%29.png" />
     <Content Include="assets\css\animate.css\css\animate.css" />
     <Content Include="assets\css\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\css\jquery.mCustomScrollbar.css" />
@@ -338,7 +343,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Image\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

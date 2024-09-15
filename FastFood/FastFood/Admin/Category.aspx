@@ -7,7 +7,14 @@
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
+    <style>
+        .grid{
+            text-align:center;
+            background-position:center;
+            background-size:cover;
 
+        }
+    </style>
 
     <div class="pcoded-inner-content pt-0">
         <div class="main-body">
@@ -36,7 +43,6 @@
                                     <div class="mb-3">
                                         <asp:Label Text="Field" ID="txtField" runat="server" />
 
-                                        <%--//[6.Filtro Avanzado]--%>
                                         <asp:DropDownList CssClass="form-control" runat="server" ID="ddlField" OnSelectedIndexChanged="ddlField_SelectedIndexChanged" AutoPostBack="true">
                                             <asp:ListItem Text="[Selection]" />
                                             <asp:ListItem Text="Name" />
@@ -70,7 +76,7 @@
                             <div class="row">
                                 <div class="col-3">
                                     <div class="mb-3">
-                                        <%--//[7.Filtro Avanzado]--%>
+
                                         <asp:Button Text="Search" CssClass="btn btn-primary" ID="btnSearch" runat="server" OnClick="btnSearch_Click" />
                                     </div>
                                 </div>
@@ -78,23 +84,24 @@
 
 
                             <%} %>
-
-
-
-
-
-
-
-                            <%---------------------------------------------------------------------------%>
-                            <asp:GridView ID="dgvCategory" CssClass="table" runat="server" AutoGenerateColumns="false"
+                            <asp:GridView ID="dgvCategory" CssClass="table grid" runat="server" AutoGenerateColumns="False"
                                 OnSelectedIndexChanged="dgvCategory_SelectedIndexChanged" DataKeyNames="CategoryId"
-                                OnPageIndexChanging="dgvCategory_PageIndexChanging" AllowPaging="true" PageSize="10">
+                                OnPageIndexChanging="dgvCategory_PageIndexChanging" AllowPaging="True">
 
                                 <Columns>
                                     <asp:BoundField HeaderText="Name" DataField="Name" />
-                                    <asp:CheckBoxField HeaderText="IsActive" DataField="IsActive" />
+                                    <asp:CheckBoxField HeaderText="IsActive" DataField="IsActive">
+                                    </asp:CheckBoxField>
+                                    <asp:ImageField HeaderText="Image" DataImageUrlField="ImageUrl" DataImageUrlFormatString="./Image/{0}" > 
+                                        <ControlStyle Height="40px" Width="40px" />
+                                    </asp:ImageField>                                   
                                     <%--          <asp:BoundField HeaderText="CreatedDate" DataField="CreatedDate" />--%>
-                                    <asp:CommandField ShowSelectButton="true" HeaderText="Action" SelectText="Edit" />
+                                    <asp:CommandField ShowSelectButton="true" HeaderText="Action" SelectText="" ButtonType="Image" SelectImageUrl="~/Admin/Image/writing_4055704 (1).png"  >
+
+                                    <ControlStyle Height="20px" Width="20px" />
+
+                                    </asp:CommandField>
+
                                 </Columns>
                             </asp:GridView>
 

@@ -209,7 +209,7 @@ namespace BusinessLogic
             {
                 data.storedProcedureConsult("storedAddCategories");
                 data.SetParameter("@Name", addCategory.Name);
-                data.SetParameter("@ImageUrl", addCategory.ImageUrl);
+                data.SetParameter("@ImageUrl", (object)addCategory.ImageUrl ?? DBNull.Value);
                 data.SetParameter("@IsActive", addCategory.IsActive);
                 data.executeAction();
             }

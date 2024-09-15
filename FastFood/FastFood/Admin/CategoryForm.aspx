@@ -20,6 +20,13 @@
         }
     </script>--%>
 
+    <style>
+        .validacion{
+            color:#ff0000;
+            font-size:10px;
+        }
+    </style>
+
     <div class="pcoded-inner-content pt-0">
         <div class="main-body">
             <div class="page-wrapper" style="margin: 0px 10%">
@@ -36,11 +43,12 @@
                                 <asp:TextBox ID="txtCategoryId" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                             <%} %>
-                            <div class="mb-3" style="margin: 20px 25%">
+                            <div class="mb-3" style="margin: 20px 25% 0px" >
                                 <asp:Label Text="Name" runat="server" CssClass="form-label" />
                                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ErrorMessage="Required Name" CssClass="validacion" ControlToValidate="txtName" runat="server" ID="rfValidator"/>
                             </div>
-                            <div class="mb-3" style="margin: 20px 25%">
+                            <div class="mb-3" style="margin: 0px 25%">
                                 <asp:Label Text="ImageUrl" runat="server" CssClass="form-label" />
 
                                 <%--DEBERIA PODER INGRESAR UNA IMAGEN, QUE SE RENDERICE EN EL MOMENTO.--%>
@@ -53,7 +61,7 @@
                             </div>
                             <%--corregir--%>
                             <div>
-                                <asp:Image ImageUrl="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" ID="imgForm" CssClass="rounded mx-auto d-block" Style="width: 400px; height: 300px; background-size: contain; background-position: center" runat="server" />
+                                <asp:Image ImageUrl="~/Admin/Image/placeholder/placeholder.jpg" ID="imgForm" CssClass="rounded mx-auto d-block" Style="width: 400px; height: 300px; background-size: contain; background-position: center" runat="server" />
                             </div>
                             <div class="mb-3" style="margin: 35px 25%; text-align: center; font-size: 1.1em">
                                 <label for="cbActivo" class="form-label">Activo</label>
@@ -68,8 +76,11 @@
                             <%} %>
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <asp:Button Text="Accept" ID="btnAccept" CssClass="btn btn-primary" OnClick="btnAccept_Click" runat="server" />
+                            <asp:Button Text="Add" ID="btnAccept" CssClass="btn btn-primary" OnClick="btnAccept_Click" runat="server" />
+                             <%if (Request.QueryString["Id"] != null)
+                                { %>
                             <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-primary" OnClick="btnCancel_Click" runat="server" />
+                              <%} %>
                         </div>
                         <asp:UpdatePanel runat="server">
                             <ContentTemplate>

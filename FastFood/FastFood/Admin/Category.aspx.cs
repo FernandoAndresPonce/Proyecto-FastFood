@@ -21,7 +21,6 @@ namespace FastFood.Admin
                 BusinessCategories listCategories = new BusinessCategories();
 
                 Session.Add("listCategories", listCategories.ListWithSP());
-
                 dgvCategory.DataSource = Session["listCategories"];
                 dgvCategory.DataBind();
 
@@ -80,6 +79,7 @@ namespace FastFood.Admin
                 ddlCriterion.Enabled = !FilterAdvanced;
                 txtAdvancedFilter.Enabled = !FilterAdvanced;
                 ddlState.Enabled = !FilterAdvanced;
+                btnSearch.Enabled = !FilterAdvanced;
             }
 
         }
@@ -101,12 +101,14 @@ namespace FastFood.Admin
                     ddlCriterion.Enabled = true;
                     txtAdvancedFilter.Enabled = true;
                     ddlState.Enabled = true;
+                    btnSearch.Enabled = true;
                 }
                 else
                 {
                     ddlCriterion.Enabled = false;
                     txtAdvancedFilter.Enabled = false;
                     ddlState.Enabled = false;
+                    btnSearch.Enabled = false;
                 }
 
             }
@@ -119,6 +121,7 @@ namespace FastFood.Admin
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+ 
             try
             {
                 BusinessCategories business = new BusinessCategories();
