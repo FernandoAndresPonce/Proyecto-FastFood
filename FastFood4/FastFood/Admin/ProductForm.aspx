@@ -97,10 +97,29 @@
                             </div>
 
 
-                            <div class="mb-3" style="margin: 35px 25%; text-align: center; font-size: 1.1em">
+                          <%--  <div class="mb-3" style="margin: 35px 25%; text-align: center; font-size: 1.1em">
                                 <label for="cbActivo" class="form-label">Activo</label>
                                 <asp:CheckBox ID="cbActivo" runat="server" Checked="true" />
-                            </div>
+                            </div>--%>
+
+                             <asp:UpdatePanel runat="server">
+                                <ContentTemplate>
+                                    <div style="margin: 10px 25% 0px; text-align: center; font-size: 1.1em">
+                                        <asp:CheckBox ID="cbActivo" runat="server" Checked="true" OnCheckedChanged="cbActivo_CheckedChanged" AutoPostBack="true" />
+                                    </div>
+                                    <div style="margin: 0px 25% 25px; text-align: center; font-size: 1.1em">
+                                        <%if (cbActivo.Checked)
+                                            { %>
+                                        <asp:Label Text="Active" ID="lblActive" CssClass="badge badge-success" runat="server" />
+                                        <%}
+                                            else
+                                            { %>
+                                        <asp:Label Text="Inactive" ID="lblInactive" CssClass="badge badge-danger" runat="server" />
+                                        <%} %>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+
                             <%-------------------------------%>
                             <%if (Request.QueryString["Id"] != null)
                                 { %>

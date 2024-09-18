@@ -23,11 +23,14 @@ namespace FastFood.Admin
 
                 if (!IsPostBack)
                 {
+                    Session["breadCrum"] = "Products";
+                    
                     BusinessProducts listProducts = new BusinessProducts();
 
                     Session.Add("listProducts", listProducts.ListWithSP());
                     dgvProducts.DataSource = Session["listProducts"];
                     dgvProducts.DataBind();
+
 
                 }
 
