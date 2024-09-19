@@ -159,7 +159,7 @@ namespace BusinessLogic
         {
             try
             {
-                data.storedProcedureConsult("storedListProducts");
+                data.storedProcedureConsult("storedShowDetailProducts");
                 data.SetParameter("@ProductId", selectedProduct.ProductId);
                 data.executeRead();
 

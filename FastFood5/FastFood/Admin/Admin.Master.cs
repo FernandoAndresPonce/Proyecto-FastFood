@@ -22,7 +22,7 @@ namespace FastFood.Admin
 
             }
 
-            if (Page is ProductForm)
+            if (Page is ProductForm || Page is ProductDetail)
             {
                 if (!(Request.QueryString["Name"] != null || Request.QueryString["Id"] != null))
                 {

@@ -11,7 +11,6 @@ namespace FastFood.Admin
 {
     public partial class ProductForm : System.Web.UI.Page
     {
-
         public bool ConfirmAddCancel { get; set; }
         public bool ConfirmDeleted { get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -133,11 +132,18 @@ namespace FastFood.Admin
                 }
                 else
                 {
-                    string script = @"<script type='text/javascript'>alert('Product has been successfully UPDATE ! \nPRICE: $" + addProduct.Price
-                        + @"\nQUANTITY: " + addProduct.Quantity
-                        + @"\nProduct Name: " + addProduct.Name
-                        + @"\nProduct Name: " + addProduct.Name + "'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
+
+                    string script = @"<script type='text/javascript'>alert('Product has been successfully UPDATE !'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
+
+                    //Tener otra alternativa de como puede aparecer el popup de que el producto ha sido actualizado existosamente, con su descripcion.
+
+                    //string script = @"<script type='text/javascript'>alert('Product has been successfully UPDATE ! \NAME: $" + addProduct.Price
+                    //    + @"\nProduct PRICE: " + addProduct.Price
+                    //    + @"\nQUANTITY: " + addProduct.Quantity
+                    //    + @"\nDESCRIPCION: " + addProduct.Description 
+                    //    + @"\nCATEGORIA: " + addProduct.Category.Name + "'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
+                    //ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
 
                 }
 
@@ -254,5 +260,18 @@ namespace FastFood.Admin
                 Response.Redirect("Error.aspx", false);
             }
         }
+
+        protected void btnUpdateImage_Click(object sender, EventArgs e)
+        {
+            
+
+            if (!string.IsNullOrEmpty(txtImage.PostedFile.FileName))
+            {
+                string route = Server.MapPath("./Image/");
+                txtImage.PostedFile.SaveAs(route + "Product-Preview.jpg");
+                imgForm.ImageUrl = "./Image/Product-Preview.jpg";
+            }
+
+        } 
     }
 }

@@ -27,11 +27,12 @@ namespace FastFood.Admin
                     //btnAdd.Text = "Update";
 
                     selectedProduct.ProductId = int.Parse(ProductId);
-                    business.ShowProduct(selectedProduct);
+                    business.ShowProductDetail(selectedProduct);
 
                     lblNameProduct.Text = selectedProduct.Name;
                     lblDescriptionProduct.Text = selectedProduct.Description;
-                    lblCategoryProduct.Text = selectedProduct.Category.CategoryId.ToString();
+                    //lblCategoryProduct.Text = selectedProduct.Category.CategoryId.ToString();
+                    lblCategoryProduct.Text = selectedProduct.Category.Name.ToString();
                     lblPriceProduct.Text = selectedProduct.Price.ToString();
                     lblQuantityProduct.Text = selectedProduct.Quantity.ToString();
                     //txtCreatedDate.Text = selectedProduct.CreatedDate.ToString();
@@ -51,7 +52,7 @@ namespace FastFood.Admin
 
         }
 
-        protected void btnUpdate_Click(object sender, EventArgs e)
+        protected void btnEdit_Click(object sender, EventArgs e)
         {
             try
             {

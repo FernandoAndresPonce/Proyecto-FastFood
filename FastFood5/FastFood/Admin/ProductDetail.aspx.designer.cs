@@ -96,13 +96,13 @@ namespace FastFood.Admin
         protected global::System.Web.UI.WebControls.CheckBox cbActivo;
 
         /// <summary>
-        /// Control btnUpdate.
+        /// Control btnEdit.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnEdit;
 
         /// <summary>
         /// Control btnReturn.

@@ -28,6 +28,7 @@
         }
     </style>
 
+
     <div class="pcoded-inner-content pt-0">
         <div class="main-body">
             <div class="page-wrapper" style="margin: 0px 10%">
@@ -56,7 +57,7 @@
                             <div class="mb-3" style="margin: 10px 25% 0px">
                                 <asp:Label Text="Product Description" runat="server" CssClass="form-label" />
                                 <asp:RegularExpressionValidator ControlToValidate="txtDescription" ValidationExpression=".{0,300}" ErrorMessage="Only allow 300 caracters max." runat="server" CssClass="validacion" Display="Dynamic" SetFocusOnError="true"> </asp:RegularExpressionValidator>
-                                <asp:TextBox ID="txtDescription" TextMode="MultiLine" runat="server" CssClass="form-control" MaxLength="301" ></asp:TextBox>
+                                <asp:TextBox ID="txtDescription" TextMode="MultiLine" runat="server" CssClass="form-control" MaxLength="301"></asp:TextBox>
                             </div>
 
                             <div class="mb-3" style="margin: 10px 25% 0px">
@@ -87,17 +88,26 @@
                             <%--DEBERIA PODER INGRESAR UNA IMAGEN, QUE SE RENDERICE EN EL MOMENTO.--%>
 
                             <%-------------------------------%>
+
+
+
                             <div class="mb-3" style="margin: 0px 25%">
                                 <asp:Label Text="Product Image" runat="server" CssClass="form-label" />
 
                                 <input type="file" id="txtImage" class="form-control" runat="server" />
                             </div>
 
+                            <%--Previsualizar imagen--%>
 
-                            <div>
-                                <asp:Image ImageUrl="~/Admin/Image/placeholder/placeholder.jpg" ID="imgForm" CssClass="rounded mx-auto d-block" Style="width: 400px; height: 300px; background-size: contain; background-position: center" runat="server" />
-                            </div>
+                                    <div class="mb-3" style="margin: 0px 25% 0px">
+                                        <asp:Button Text="Preview image" ID="btnUpdateImage" runat="server" OnClick="btnUpdateImage_Click" CssClass="btn btn-outline-secondary" Style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" />
+                                    </div>
 
+
+
+                                    <div>
+                                        <asp:Image ImageUrl="~/Admin/Image/placeholder/placeholder.jpg" ID="imgForm" CssClass="rounded mx-auto d-block" Style="width: 400px; height: 300px; background-size: contain; background-position: center" runat="server" />
+                                    </div>
 
                             <asp:UpdatePanel runat="server">
                                 <ContentTemplate>

@@ -21,6 +21,7 @@
                                 <asp:Label Text="" ID="lblNameProduct" runat="server" Style="font-weight: bolder; font-size: 1.5em" />
                             </div>
 
+
                             <%----------------------------------------------------------------------%>
 
                             <div class="container  ">
@@ -110,7 +111,7 @@
                     </div>
                     <%--card--%>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <asp:Button Text="Update" ID="btnUpdate" CssClass="btn btn-primary" OnClick="btnUpdate_Click" runat="server" />
+                        <asp:Button Text="Edit" ID="btnEdit" CssClass="btn btn-primary" OnClick="btnEdit_Click" runat="server" />
                         <asp:Button Text="Return" ID="btnReturn" CssClass="btn btn-primary" OnClick="btnReturn_Click" runat="server" />
 
                     </div>
