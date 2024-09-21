@@ -104,7 +104,7 @@
                 
                 <div class="row pl-4">
                     <div class="btn-box">
-                        <asp:Button ID="btnRegister" Text="Register" CssClass="btn btn-success rounded-pill pl-4 pr-4 text-white" OnClick="btnRegister_Click" runat="server" />
+                        <asp:Button ID="btnRegister" CausesValidation="False" Text="Register" CssClass="btn btn-success rounded-pill pl-4 pr-4 text-white" OnClick="btnRegister_Click" runat="server" />
                         <asp:Label ID="lblAlreadyUser" CssClass="pl-3 text-black-100" Text="Already registered? <a href='Login.aspx' class='badge badge-info'>Login here...</a>" runat="server" />
                     </div>
                 </div>

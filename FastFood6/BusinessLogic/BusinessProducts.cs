@@ -13,6 +13,7 @@ namespace BusinessLogic
 
         private Connection data;
 
+
         public BusinessProducts()
         {
             this.data = new Connection();

@@ -217,7 +217,11 @@
     <Content Include="User\About.aspx" />
     <Content Include="User\Contact.aspx" />
     <Content Include="User\Default.aspx" />
+    <Content Include="User\Image\burger_illustration_graffiti_project_by_meas7_dg4fcqu-414w-2x.jpg" />
+    <Content Include="User\Image\PerfilImage.jpg" />
     <Content Include="User\Menu.aspx" />
+    <Content Include="User\MyProfile.aspx" />
+    <Content Include="User\Registration.aspx" />
     <Content Include="User\SliderUserControl.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -323,6 +327,20 @@
     </Compile>
     <Compile Include="User\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\SliderUserControl.ascx.cs">
       <DependentUpon>SliderUserControl.ascx</DependentUpon>

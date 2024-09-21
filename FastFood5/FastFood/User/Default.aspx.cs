@@ -13,5 +13,15 @@ namespace FastFood.User
         {
 
         }
+
+        protected void caca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("About.aspx", false);
+        }
     }
 }

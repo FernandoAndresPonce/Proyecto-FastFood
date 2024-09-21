@@ -16,7 +16,7 @@ namespace FastFood.User
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("asdsd.asd");
         }
     }
 }
