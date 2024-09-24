@@ -41,7 +41,7 @@ namespace FastFood.User
                     //Guid obj = Guid.NewGuid();
                     string fileExtension = Path.GetExtension(fuUserImage.FileName);
                     //string route = "Image/" + newUser.Username + ".png";
-                    fuUserImage.PostedFile.SaveAs(Server.MapPath("./Image/") + "User-" + newUser.Username + fileExtension);
+                    fuUserImage.PostedFile.SaveAs(Server.MapPath("./Image/Users/") + "User-" + newUser.Username + fileExtension);
                     newUser.ImageUrl = "Users-" + newUser.Username + fileExtension;
 
                 }

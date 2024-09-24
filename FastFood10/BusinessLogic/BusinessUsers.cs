@@ -46,5 +46,18 @@ namespace BusinessLogic
                 data.closeConection();
             }
         }
+
+        public int confirmLogin(Users loginUser)
+        {
+            try
+            {
+                return 5;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

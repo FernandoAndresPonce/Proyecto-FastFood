@@ -22,8 +22,8 @@
     </style>
 
     <div class="pcoded-inner-content pt-0" style="margin-top: 0px">
-        <div class="main-body">
-            <div class="page-wrapper" style="margin: 0px 10%">
+        <div class="main-body" ">
+            <div class="page-wrapper" style="margin: 0px 2%">
                 <div class="page-body">
 
                     <asp:UpdatePanel runat="server">
@@ -108,7 +108,7 @@
 
                                 <Columns>
                                     <asp:BoundField HeaderText="Name" DataField="Name" />
-                                    <asp:ImageField HeaderText="Image" DataImageUrlField="ImageUrl" DataImageUrlFormatString="./Image/{0}">
+                                    <asp:ImageField HeaderText="Image" DataImageUrlField="ImageUrl" DataImageUrlFormatString="./Image/Products/{0}">
                                         <ControlStyle Height="40px" Width="40px" />
                                     </asp:ImageField>
                                     <asp:BoundField HeaderText="Price" DataField="Price" />

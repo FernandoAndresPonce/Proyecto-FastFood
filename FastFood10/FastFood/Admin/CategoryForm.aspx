@@ -46,7 +46,8 @@
                             <%} %>
                             <div class="mb-3" style="margin: 20px 25% 0px">
                                 <asp:Label Text="Category Name" runat="server" CssClass="form-label" />
-                                <asp:RequiredFieldValidator ErrorMessage="(Required Category Name)" CssClass="validacion" ControlToValidate="txtName" runat="server" ID="rfValidator" SetFocusOnError="true" />
+                                <asp:RequiredFieldValidator ErrorMessage="(Required Category Name)" CssClass="validacion" Display="Dynamic" ControlToValidate="txtName" runat="server" ID="rfValidator" SetFocusOnError="true" />
+                                <asp:RegularExpressionValidator ID="revName" ErrorMessage="(Name must be in character only)" CssClass="validacion" Display="Dynamic" SetFocusOnError="true" ValidationExpression="^[a-zA-Z\s]+$" ControlToValidate="txtName" runat="server"></asp:RegularExpressionValidator>
                                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
                             </div>
 

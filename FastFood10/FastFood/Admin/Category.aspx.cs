@@ -18,7 +18,19 @@ namespace FastFood.Admin
 
 
             if (!IsPostBack)
+            {
                 Session["breadCrum"] = "Category";
+
+
+                //podriamos usar tambien esta alternativa para mostrar un mensaje que fue creado exitosamente.
+                if (Session["Mensaje"] != null)
+                {
+                    lblMsg.Visible = true;
+                    lblMsg.Text = Session["Mensaje"].ToString();
+                    lblMsg.CssClass = "alert alert-success";
+                    Session["Mensaje"] = null;
+                }
+            }
 
             try
             {

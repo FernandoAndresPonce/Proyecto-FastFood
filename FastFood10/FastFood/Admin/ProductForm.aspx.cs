@@ -11,12 +11,10 @@ namespace FastFood.Admin
 {
     public partial class ProductForm : System.Web.UI.Page
     {
-        public bool ConfirmAddCancel { get; set; }
         public bool ConfirmDeleted { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            ConfirmAddCancel = false;
             ConfirmDeleted = false;
 
             try
@@ -35,8 +33,6 @@ namespace FastFood.Admin
                     ddlCategory.DataBind();
 
                 }
-
-                string Name = Request.QueryString["Name"] != null ? Request.QueryString["Name"] : string.Empty;
 
 
                 string ProductId = Request.QueryString["Id"] != null ? Request.QueryString["Id"] : string.Empty;
@@ -61,25 +57,9 @@ namespace FastFood.Admin
                     txtCreatedDate.Text = selectedProduct.CreatedDate.ToString();
                     cbActivo.Checked = selectedProduct.IsActive;
                     if (!string.IsNullOrEmpty(selectedProduct.ImageUrl))
-                        imgForm.ImageUrl = "./Image/" + selectedProduct.ImageUrl;
+                        imgForm.ImageUrl = "./Image/Products/" + selectedProduct.ImageUrl;
 
-                    Session.Add("Product", selectedProduct);
-                }
-                else if (Name != string.Empty && !IsPostBack)
-                {
-
-                    txtProductName.Enabled = false;
-
-                    Product selectedProduct = new Product();
-                    BusinessProducts business = new BusinessProducts();
-
-                    selectedProduct.Name = Name;
-                    business.ShowProductName(selectedProduct);
-
-                    txtProductId.Text = selectedProduct.ProductId.ToString();
-                    txtProductName.Text = selectedProduct.Name;
-
-                    Session.Add("Product", selectedProduct);
+                    //Session.Add("Product", selectedProduct);
                 }
 
             }
@@ -106,15 +86,10 @@ namespace FastFood.Admin
 
 
                 BusinessProducts business = new BusinessProducts();
-                Product addProduct = (Product)Session["Product"];
+                Product addProduct = new Product();
 
 
-                if (!string.IsNullOrEmpty(txtImage.PostedFile.FileName))
-                {
-                    string route = Server.MapPath("./Image/");
-                    txtImage.PostedFile.SaveAs(route + "Product-" + addProduct.ProductId + ".jpg");
-                    addProduct.ImageUrl = "Product-" + addProduct.ProductId + ".jpg";
-                }
+
 
                 addProduct.Name = txtProductName.Text;
                 addProduct.Description = txtDescription.Text;
@@ -124,17 +99,38 @@ namespace FastFood.Admin
                 addProduct.Category.CategoryId = int.Parse(ddlCategory.SelectedValue);
                 addProduct.IsActive = cbActivo.Checked;
 
-                business.UpdateWithSp(addProduct);
 
-                if (Request.QueryString["Name"] != null)
+                if (Request.QueryString["Id"] != null)
                 {
-                    string script = @"<script type='text/javascript'>alert('Product has been successfully CREATED !'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
+                    addProduct.ProductId = int.Parse(txtProductId.Text.ToString());
+                    addProduct.ImageUrl = "Product-" + addProduct.ProductId + ".jpg";
+
+                    if (!string.IsNullOrEmpty(txtImage.PostedFile.FileName))
+                    {
+                        string route = Server.MapPath("./Image/Products/");
+                        txtImage.PostedFile.SaveAs(route + "Product-" + addProduct.ProductId + ".jpg");
+                        addProduct.ImageUrl = "Product-" + addProduct.ProductId + ".jpg";
+                    }
+
+                    business.UpdateWithSp(addProduct);
+
+                    string script = @"<script type='text/javascript'>alert('Product has been successfully UPDATE !'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }
                 else
                 {
+                    int id = business.AddWithSP(addProduct);
+                    addProduct.ProductId = id;
+                    if (!string.IsNullOrEmpty(txtImage.PostedFile.FileName))
+                    {
+                        string route = Server.MapPath("./Image/Products/");
+                        txtImage.PostedFile.SaveAs(route + "Product-" + addProduct.ProductId + ".jpg");
+                        addProduct.ImageUrl = "Product-" + addProduct.ProductId + ".jpg";
+                    }
 
-                    string script = @"<script type='text/javascript'>alert('Product has been successfully UPDATE !'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
+                    business.AddImageWithSP(addProduct);
+
+                    string script = @"<script type='text/javascript'>alert('Product has been successfully CREATED !'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
 
                     //Tener otra alternativa de como puede aparecer el popup de que el producto ha sido actualizado existosamente, con su descripcion.
@@ -172,43 +168,6 @@ namespace FastFood.Admin
             }
         }
 
-        protected void btnAddCancel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ConfirmAddCancel = true;
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx", false);
-            }
-        }
-
-        protected void btnConfirmAddCancel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                BusinessProducts business = new BusinessProducts();
-                Product cancelProduct = new Product();
-                cancelProduct.ProductId = int.Parse(txtProductId.Text.ToString());
-
-                if (cbConfirmAddCancel.Checked)
-                {
-                    business.DeleteWithSP(cancelProduct);
-                    string script = @"<script type='text/javascript'>alert('Product has been successfully CANCELED !'); window.location.href='http://localhost:52000/Admin/Products.aspx'</script>";
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx", false);
-            }
-
-        }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
@@ -262,18 +221,5 @@ namespace FastFood.Admin
             }
         }
 
-        //protected void btnUpdateImage_Click(object sender, EventArgs e)
-        //{
-            
-
-        //    if (!string.IsNullOrEmpty(txtImage.PostedFile.FileName))
-        //    {
-        //        string route = Server.MapPath("./Image/");
-        //        txtImage.PostedFile.SaveAs(route + "Product-Preview.jpg");
-        //        Session.Add("UpdateImage", "./Image/Product-Preview.jpg");
-        //        imgForm.ImageUrl = "./Image/Product-Preview.jpg";
-        //    }
-
-        //} 
     }
 }

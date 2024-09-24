@@ -7,6 +7,16 @@
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
+    <script>
+        window.onload = function () {
+            var seconds = 5;
+            setTimeout(function () {
+                document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
+            }, seconds * 1000);
+        };
+    </script>
+
+
     <style>
         .grid {
             text-align: center;
@@ -17,8 +27,19 @@
 
     <div class="pcoded-inner-content pt-0" style="margin-top: 0px">
         <div class="main-body">
+            <%---------------------%>
+
+            <div class="heading_container">
+                <div class="align-self-end" style="text-align: center; width: 100%;">
+                    <asp:Label ID="lblMsg" runat="server" Visible="false"
+                        CssClass="mensaje-label" />
+                </div>
+            </div>
+
+            <%---------------------%>
             <div class="page-wrapper" style="margin: 0px 10%">
                 <div class="page-body">
+
 
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>

@@ -69,7 +69,7 @@ namespace FastFood.Admin
                 BusinessCategories business = new BusinessCategories();
                 CategoryD addCategory = new CategoryD();
 
-                
+
                 addCategory.Name = txtName.Text;
                 addCategory.IsActive = cbActivo.Checked;
 
@@ -106,8 +106,13 @@ namespace FastFood.Admin
                     }
                     business.AddImageWithSP(addCategory);
 
+                    Session["Mensaje"] = "Mensaje desde el formulario Category, Categoria Creada " + txtName.Text.Trim() ;
+
                     string script = @"<script type='text/javascript'>alert('Category has been successfully CREATED !'); window.location.href='http://localhost:52000/Admin/Category.aspx'</script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
+
+
+
                 }
 
 

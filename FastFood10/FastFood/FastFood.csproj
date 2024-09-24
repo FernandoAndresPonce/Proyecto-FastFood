@@ -77,7 +77,6 @@
     <Content Include="Admin\Image\icons8-visible-50.png" />
     <Content Include="Admin\Image\placeholder\placeholder.jpg" />
     <Content Include="Admin\Image\writing_4055704 %281%29.png" />
-    <Content Include="Admin\ProductAddName.aspx" />
     <Content Include="Admin\ProductDetail.aspx" />
     <Content Include="Admin\ProductForm.aspx" />
     <Content Include="Admin\Products.aspx" />
@@ -261,13 +260,6 @@
     </Compile>
     <Compile Include="Admin\Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ProductAddName.aspx.cs">
-      <DependentUpon>ProductAddName.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ProductAddName.aspx.designer.cs">
-      <DependentUpon>ProductAddName.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>

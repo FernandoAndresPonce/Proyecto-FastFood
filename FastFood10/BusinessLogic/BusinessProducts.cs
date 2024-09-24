@@ -374,21 +374,39 @@ namespace BusinessLogic
             }
         }
 
-        public void AddWithSP(Product addProduct)
+        public int AddWithSP(Product addProduct)
         {
 
             try
             {
-                data.storedProcedureConsult("storedAddProductName");
+                data.storedProcedureConsult("storedAddProducts");
                 data.SetParameter("@Name", addProduct.Name);
+                data.SetParameter("@Description", addProduct.Description);
+                data.SetParameter("@Price", addProduct.Price);
+                data.SetParameter("@Quantity", addProduct.Quantity);
+                data.SetParameter("@CategoryId", addProduct.Category.CategoryId);
+                data.SetParameter("@IsActive", addProduct.IsActive);
+                return data.executeActionScalar();
+            }
+            catch (Exception ex)
+            {
 
-                //ver si elimino esto !!!!!!!!!!!!!!!!
-                //data.SetParameter("@Description", addProduct.Description);
-                //data.SetParameter("@Price", addProduct.Price);
-                //data.SetParameter("@Quantity", addProduct.Quantity);
-                //data.SetParameter("@CategoryId", addProduct.Category.CategoryId);
-                //data.SetParameter("@@ImageUrl", (object)addProduct.ImageUrl ?? DBNull.Value);
-                //data.SetParameter("@IsActive", addProduct.IsActive);
+                throw ex;
+            }
+            finally
+            {
+                data.closeConection();
+            }
+        }
+
+        public void AddImageWithSP(Product addProduct)
+        {
+            data.clearParameter();
+            try
+            {
+                data.storedProcedureConsult("storedAddImageProduct");
+                data.SetParameter("@ProductId", addProduct.ProductId);
+                data.SetParameter("@ImageUrl", (object)addProduct.ImageUrl ?? DBNull.Value);
                 data.executeAction();
             }
             catch (Exception ex)

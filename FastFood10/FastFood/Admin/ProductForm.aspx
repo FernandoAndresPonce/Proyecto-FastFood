@@ -50,7 +50,8 @@
                             <%} %>
                             <div class="mb-3" style="margin: 10px 25% 0px">
                                 <asp:Label Text="Product Name" runat="server" CssClass="form-label" />
-                                <asp:RequiredFieldValidator ErrorMessage="(Required Product Name)" CssClass="validacion" ControlToValidate="txtProductName" runat="server" ID="rfValidator" />
+                                <asp:RequiredFieldValidator ErrorMessage="(Required Product Name)" CssClass="validacion"  Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtProductName" runat="server" ID="rfValidator" />
+                                   <asp:RegularExpressionValidator ID="revName" ErrorMessage="(Name must be in character only)" CssClass="validacion" Display="Dynamic" SetFocusOnError="true" ValidationExpression="^[a-zA-Z\s]+$" ControlToValidate="txtProductName" runat="server"></asp:RegularExpressionValidator>
                                 <asp:TextBox ID="txtProductName" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
 
                             </div>
@@ -128,41 +129,13 @@
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <asp:Button Text="Add" ID="btnAdd" CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" />
-                    <%if (Request.QueryString["Id"] != null)
-                        { %>
-                    <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-primary" OnClick="btnCancel_Click" runat="server" />
-                    <%} %>
                 </div>
 
-                <asp:UpdatePanel runat="server">
-                    <ContentTemplate>
-
-
-                        <%if (Request.QueryString["Name"] != null)
-                            { %>
-                        <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 10px">
-                            <asp:Button Text="Cancel" ID="btnAddCancel" CssClass="btn btn-dark" OnClick="btnAddCancel_Click" runat="server" />
-                        </div>
-                        <%} %>
-
-
-                        <%if (ConfirmAddCancel)
-                            { %>
-                        <div class="mb-3" style="margin: 10px 25%; text-align: center">
-                            <label for="cbConfirmDeletion" class="form-label">Confirm Cancel</label>
-                            <asp:CheckBox ID="cbConfirmAddCancel" runat="server" />
-                        </div>
-                        <div>
-                            <asp:Button Text="Confirm Add Cancel" ID="btnConfirmAddCancel" CssClass="btn btn-outline-danger" OnClick="btnConfirmAddCancel_Click" runat="server" />
-                        </div>
-                        </div>
-                        <%} %>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-
+                <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 10px">
+                    <a class="btn btn-primary" href="Products.aspx">Cancel</a>
+                </div>
 
                 <%-------------------------------%>
-
 
 
                 <asp:UpdatePanel runat="server">

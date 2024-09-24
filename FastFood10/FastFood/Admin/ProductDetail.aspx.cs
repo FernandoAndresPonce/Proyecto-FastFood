@@ -38,9 +38,9 @@ namespace FastFood.Admin
                     //txtCreatedDate.Text = selectedProduct.CreatedDate.ToString();
                     cbActivo.Checked = selectedProduct.IsActive;
                     if (!string.IsNullOrEmpty(selectedProduct.ImageUrl))
-                        imgForm.ImageUrl = "./Image/" + selectedProduct.ImageUrl;
+                        imgForm.ImageUrl = "./Image/Products/" + selectedProduct.ImageUrl;
 
-                    Session.Add("Product", selectedProduct);
+                    //Session.Add("Product", selectedProduct);
                 }
 
             }

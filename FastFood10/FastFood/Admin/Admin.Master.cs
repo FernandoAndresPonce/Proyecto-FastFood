@@ -11,20 +11,20 @@ namespace FastFood.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if(Page is CategoryForm)
+            //if (Page is CategoryForm)
             //{
-            //    if(!(Request.QueryString["Id"] != null))
+            //    if (!(Request.QueryString["Id"] != null))
             //    {
-            //        Session.Add("Error", "Entry is not allowed from that origin"); 
+            //        Session.Add("Error", "Entry is not allowed from that origin");
             //        // Decidir si redirecciono al form error, o directamente que lo dirija a la categoria, pero sin dar detalle de tal motivo.
             //        Response.Redirect("Category.aspx", false);
             //    }
 
             //}
 
-            if (Page is ProductForm || Page is ProductDetail)
+            if (Page is ProductDetail)
             {
-                if (!(Request.QueryString["Name"] != null || Request.QueryString["Id"] != null))
+                if (!(Request.QueryString["Id"] != null))
                 {
                     Session.Add("Error", "Entry is not allowed from that origin");
                     Response.Redirect("Products.aspx", false);

@@ -5,15 +5,15 @@
 
 
 
-<%--    <script>
+    <script>
         window.onload = function () {
             var seconds = 5;
             setTimeout(function () {
                 document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
             }, seconds * 1000);
         };
-    </script>--%>
-<%-- <script>
+    </script>
+ <script>
      function ImagePreview(input) {
          if (input.files && input.files[0]) {
              var reader = new FileReader();
@@ -25,7 +25,7 @@
              reader.readAsDataURL(input.files[0]);
          }
      }
- </script>--%>
+ </script>
 
 
 </asp:Content>

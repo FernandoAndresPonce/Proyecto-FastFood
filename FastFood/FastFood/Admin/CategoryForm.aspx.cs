@@ -75,8 +75,8 @@ namespace FastFood.Admin
                     if (!string.IsNullOrEmpty(txtImage.PostedFile.FileName))
                     {
                         string route = Server.MapPath("./Image/");
-                        txtImage.PostedFile.SaveAs(route + "Category-" + addCategory.Name + ".jpg");
-                        addCategory.ImageUrl = "Category-" + addCategory.Name + ".jpg";
+                        txtImage.PostedFile.SaveAs(route + "Category-" + addCategory.CategoryId + ".jpg");
+                        addCategory.ImageUrl = "Category-" + addCategory.CategoryId + ".jpg";
                         //imgForm.ImageUrl = "./Image/" + addCategory.ImageUrl;
                     }
 

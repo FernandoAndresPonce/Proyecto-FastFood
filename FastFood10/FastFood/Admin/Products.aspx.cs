@@ -61,7 +61,7 @@ namespace FastFood.Admin
         {
             try
             {
-                Response.Redirect("ProductAddName.aspx", false);
+                Response.Redirect("ProductForm.aspx", false);
             }
             catch (Exception ex)
             {
