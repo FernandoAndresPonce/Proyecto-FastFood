@@ -28,39 +28,40 @@ $(window).on('load', function () {
         }
     })
 
-    //$(document).ready(function () {
+    $(document).ready(function () {
 
-    //    // leer la pagina y conseguir la Url
-    //    function getUrlVars() {
-    //        var vars = [], hash;
-    //        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    //        for (var i = 0; i < hashes.length; i++) {
-    //            hash = hashes[i].split('=');
-    //            vars.push(hash[0]);
-    //            vars[hash[0]] = hash[1];
-    //        }
-    //        return vars;
-    //    };
+        // leer la pagina y conseguir la Url
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        };
 
-    //    var id = getUrlVars()["id"];
-    //    if (id > 0) {
-    //        $('.filters_menu li').removeClass('active');
-    //    }
+        var id = getUrlVars()["id"];
+        if (id > 0) {
+            $('.filters_menu li').removeClass('active');
+        }
 
-    //    $('.filters_menu li').each(function () {
-    //        // checkear si es la misma direccion
-    //        if (id == this.atributes["data-id"].value) {
-    //            $(this).closest("li").addClass("active");
+        $('.filters_menu li').each(function () {
+            // checkear si es la misma direccion
+            if (id == this.attributes["data-id"].value) {
+                $(this).closest("li").addClass("active");
 
-    //            var data = $(this).attr('data-filter');
-    //            $grid.isotope({
-    //                filter: data
-    //            })
+                var data = $(this).attr('data-filter');
+                $grid.isotope({
+                    filter: data
+                })
 
-    //            return;
-    //        }
-    //    });
+                return;
+            }
+        });
     });
+});
 
     // nice select
     $(document).ready(function () {

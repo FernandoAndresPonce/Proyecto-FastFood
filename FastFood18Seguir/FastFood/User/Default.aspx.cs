@@ -18,16 +18,13 @@ namespace FastFood.User
                 if (!IsPostBack)
                 {
 
-                    BusinessProducts businessProduct = new BusinessProducts();
                     BusinessCategories businessCategory = new BusinessCategories();
 
-                    List<ProductD> listProduct = businessProduct.ListProductsActive();
                     List<CategoryD> listCategory = businessCategory.ListCategoryActive();
 
                     rCategory.DataSource = listCategory;
                     rCategory.DataBind();
-                    //rProducts.DataSource = listProduct;
-                    //rProducts.DataBind();
+
 
                 }
             }

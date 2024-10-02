@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLogic;
 using Dominio;
+using Helper;
 
 namespace FastFood.User
 {
@@ -41,6 +42,26 @@ namespace FastFood.User
         {
             return obj.ToString().ToLower();
         }
+
+        //cart3
+        protected void rProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (Segurity.activeSession(Session["User"]))
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx", false);
+            }
+        }
+
+        //cart4
+        //int isItemExistInCart(int productId)
+        //{
+
+        //}
+
 
     }
 

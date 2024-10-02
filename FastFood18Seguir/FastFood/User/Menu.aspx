@@ -16,12 +16,14 @@
             </div>
 
             <ul class="filters_menu">
-                <li class="active" data-filter="*">All</li>
+                <%--data-id usamos js custom, para cuando ingrese el id de default, se muestre los productos de ese id--%>
+                <li class="active" data-filter="*" data-id="0">All</li>
 
                 <asp:Repeater ID="rCategory" runat="server">
                     <ItemTemplate>
                         <%--por la dudas aca le sacamos el caracter space--%>
-                        <li data-filter=".<%#Regex.Replace(LowerCase(Eval("Name")), @"\s+", "")%>"> <%# Eval("Name")%> </li>
+                        <li data-filter=".<%#Regex.Replace(LowerCase(Eval("Name")), @"\s+", "")%>" 
+                            data-id="<%# Eval("CategoryId") %>"> <%# Eval("Name")%> </li>
                     </ItemTemplate>
                 </asp:Repeater>
             </ul>
@@ -30,8 +32,8 @@
 
             <div class="filters-content">
                 <div class="row grid">
-
-                    <asp:Repeater ID="rProducts" runat="server">
+                                                                <%--cart2--%>
+                    <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_ItemCommand">
                         <ItemTemplate>
 
                             <%--Mostrar caracteristica producto--%>
@@ -51,7 +53,7 @@
                                             <div class="options">
                                                 <h6>$<%# Eval("Price")%></h6>
 
-                                                <%--agregar producto al carrito, ojo aca--%>
+                                                <%--agregar producto al carrito, ojo aca , cart1--%>
 
                                                 <asp:LinkButton ID="lbAddToCart" runat="server" CommandName="addToCart"
                                                     CommandArgument='<%# Eval("ProductId")%>'>
