@@ -18,5 +18,10 @@ namespace Dominio
         public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        public override string ToString()
+        {
+            return ProductId.ToString();
+        }
+
     }
 }

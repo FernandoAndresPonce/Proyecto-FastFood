@@ -19,5 +19,10 @@ namespace Dominio
         public string ImageUrl { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool Admin { get; set; }
+
+        public override string ToString()
+        {
+            return UserId.ToString();
+        }
     }
 }

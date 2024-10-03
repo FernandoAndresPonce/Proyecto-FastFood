@@ -12,5 +12,7 @@ namespace Dominio
         public ProductD Product { get; set; }
         public int Quantity { get; set; }
         public UsersD User { get; set; }
+
+     
     }
 }

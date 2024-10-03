@@ -46,21 +46,82 @@ namespace FastFood.User
         //cart3
         protected void rProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (Segurity.activeSession(Session["User"]))
+            //cart7
+            try
             {
+                if (Segurity.activeSession(Session["User"]))
+                {
+                    BusinessCarts business = new BusinessCarts();
+                    CartD cardProduct = new CartD();
+                    var userId = Session["User"] as UsersD;
 
+                    int i = isItemExistInCart(Convert.ToInt32(e.CommandArgument));
+
+                    if (i == 0)
+                    {
+                        cardProduct.Quantity = 1;
+                        cardProduct.User = new UsersD();
+                        cardProduct.User.UserId = userId.UserId;
+                        cardProduct.Product = new ProductD();
+                        cardProduct.Product.ProductId = Convert.ToInt32(e.CommandArgument);
+                        business.AddProductCart(cardProduct);
+                    }
+                    else
+                    {
+                        cardProduct.Quantity = i + 1;
+                        cardProduct.User = new UsersD();
+                        cardProduct.User.UserId = userId.UserId;
+                        cardProduct.Product = new ProductD();
+                        cardProduct.Product.ProductId = Convert.ToInt32(e.CommandArgument);
+                        business.UpdateProductCart(cardProduct);
+                    }
+
+
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx", false);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Response.Redirect("Login.aspx", false);
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
             }
+
+
         }
 
         //cart4
-        //int isItemExistInCart(int productId)
-        //{
+        int isItemExistInCart(int productId)
+        {
 
-        //}
+            BusinessCarts business = new BusinessCarts();
+            CartD cardProduct = new CartD();
+            var userId = Session["User"] as UsersD;
+
+
+            cardProduct.User = new UsersD();
+            cardProduct.User.UserId = userId.UserId;
+            cardProduct.Product = new ProductD();
+            cardProduct.Product.ProductId = productId;
+
+            business.isItemExistInCart(cardProduct);
+
+
+
+            int quantity = 0;
+            if (cardProduct.Quantity != 0)
+            {
+                quantity = cardProduct.Quantity;
+            }
+
+            return quantity;
+
+
+
+
+        }
 
 
     }
