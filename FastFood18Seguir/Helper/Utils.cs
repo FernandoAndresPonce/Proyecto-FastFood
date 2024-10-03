@@ -11,7 +11,7 @@ namespace Helper
         public static string GetImageUrlProduct(Object url)
         {
             string url1 = "";
-            if(string.IsNullOrEmpty(url.ToString()) || url == DBNull.Value)
+            if(/*string.IsNullOrEmpty(url.ToString()) || */ url == DBNull.Value)
             {
                 url1 = "../Admin/Image/placeholder/placeholder.jpg";
             }
@@ -24,8 +24,9 @@ namespace Helper
 
         public static string GetImageUrlCategory(Object url)
         {
+            //corregir esto
             string url1 = "";
-            if (string.IsNullOrEmpty(url.ToString()) || url == DBNull.Value)
+            if (url == DBNull.Value)
             {
                 url1 = "../Admin/Image/placeholder/placeholder.jpg";
             }
