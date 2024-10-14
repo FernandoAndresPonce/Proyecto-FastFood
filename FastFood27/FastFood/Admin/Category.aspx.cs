@@ -54,7 +54,7 @@ namespace FastFood.Admin
         protected void dgvCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             string CategoryId = dgvCategory.SelectedDataKey.Value.ToString();
-            Response.Redirect("CategoryForm.aspx?Id=" + CategoryId, false);
+            Response.Redirect("CategoryDetail.aspx?Id=" + CategoryId, false);
         }
 
         protected void dgvCategory_PageIndexChanging(object sender, GridViewPageEventArgs e)

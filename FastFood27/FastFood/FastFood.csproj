@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Category.aspx" />
+    <Content Include="Admin\CategoryDetail.aspx" />
     <Content Include="Admin\CategoryForm.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Error.aspx" />
@@ -251,6 +252,13 @@
     </Compile>
     <Compile Include="Admin\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CategoryDetail.aspx.cs">
+      <DependentUpon>CategoryDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CategoryDetail.aspx.designer.cs">
+      <DependentUpon>CategoryDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\CategoryForm.aspx.cs">
       <DependentUpon>CategoryForm.aspx</DependentUpon>
