@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="FastFood.User.User" %>
 
-<%@ Register Src="~/User/SliderUserControl.ascx" TagPrefix="uc1" TagName="SliderUserControl" %>
+<%--<%@ Register Src="~/User/SliderUserControl.ascx" TagPrefix="uc1" TagName="SliderUserControl" %>--%>
 
 
 <!DOCTYPE html>
@@ -102,7 +102,7 @@
                             </ul>
 
 
-                            <%-----------------------------------------------------------------------------------%>
+                            <%---------------------------------------------------------------------------------
 
 
                             <%--ver este problema, posiblemente deberia solucinarlo mas adelante, motivo aun no se porque, no me deja generar evento.--%>
@@ -113,9 +113,9 @@
                                 <asp:LinkButton ID="lbRegisterOrProfile" runat="server" CssClass="user_link" OnClick="lbRegisterOrProfile_Click" CausesValidation="false">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </asp:LinkButton>
-                                <%-- <a href="MyProfile.aspx" class="user_link">
+                                 <a href="MyProfile.aspx" class="user_link">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                </a>--%>
+                                </a>
 
 
 
@@ -196,7 +196,7 @@
 
                             <%-----------------------------------------------------------------------------------%>
                         </div>
-                    </nav>
+                    </nav>--%>
                 </div>
             </header>
 
