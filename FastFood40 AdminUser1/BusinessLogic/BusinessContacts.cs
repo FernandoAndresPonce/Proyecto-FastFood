@@ -43,6 +43,66 @@ namespace BusinessLogic
             }
         }
 
+        public void ShowContactDetail(ContactD contact)
+        {
+           
+            try
+            {
+                data.clearParameter();
+                data.storedProcedureConsult("storedShowMessageContacts");
+                data.SetParameter("@ContactId", contact.ContactId);
+                data.executeRead();
+                while (data.Read.Read())
+                {
+
+                    if (!(data.Read["SrNo"] is DBNull))
+                        contact.ContactId = (int)data.Read["SrNo"];
+                    if (!(data.Read["Name"] is DBNull))
+                        contact.Name = (string)data.Read["Name"];
+                    if (!(data.Read["Email"] is DBNull))
+                        contact.Email = (string)data.Read["Email"];
+                    if (!(data.Read["Subject"] is DBNull))
+                        contact.Subject = (string)data.Read["Subject"];
+                    if (!(data.Read["Message"] is DBNull))
+                        contact.Message = (string)data.Read["Message"];
+                    if (!(data.Read["CreatedDate"] is DBNull))
+                        contact.CreatedDate = DateTime.Parse(data.Read["CreatedDate"].ToString());
+
+                  
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                data.closeConection();
+            }
+        }
+
+        public void DeleteWithSP(int deleteCategory)
+        {
+            try
+            {
+                data.storedProcedureConsult("storedDeleteContact");
+                data.SetParameter("@ContactId", deleteCategory);
+                data.executeAction();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                data.closeConection();
+            }
+        }
+
         public List<ContactD> ListWithSPNewContact()
         {
             List<ContactD> listContacts = new List<ContactD>();
