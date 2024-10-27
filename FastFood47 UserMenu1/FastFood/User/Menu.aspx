@@ -87,20 +87,18 @@
                     </div>
 
                     <ul class="filters_menu" style="color: white">
-                        <li class="active" data-filter="*" data-id="0">
-                            <a href="Menu.aspx" style="color: white;">All</a>
-                        </li>
+                        <%--data-id usamos js custom, para cuando ingrese el id de default, se muestre los productos de ese id--%>
+                        <li class="active" data-filter="*" data-id="0">All</li>
 
                         <asp:Repeater ID="rCategory" runat="server">
                             <ItemTemplate>
-                                <li data-filter=".<%# Regex.Replace(LowerCase(Eval("Name")), @"\s+", "") %>" data-id="<%# Eval("CategoryId") %>">
-                                    <a href="Menu.aspx?id=<%# Eval("CategoryId") %>" style="color: white;">
-                                        <%# Eval("Name") %>
-                </a>
-                                </li>
+                                <%--por la dudas aca le sacamos el caracter space--%>
+                                <li data-filter=".<%#Regex.Replace(LowerCase(Eval("Name")), @"\s+", "")%>"
+                                    data-id="<%# Eval("CategoryId") %>"><%# Eval("Name")%> </li>
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>
+
 
 
 
@@ -216,7 +214,7 @@
         </div>
     </section>
 
-    <!-- end food section -->
+    <!-- Disappear cart account, big screen - Desaparecer carrito cuenta,en pantalla grande-->
     <script type="text/javascript">
         function checkScreenSize() {
             var panel = document.getElementById('<%= userOptionPanel.ClientID %>');

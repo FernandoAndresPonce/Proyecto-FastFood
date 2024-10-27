@@ -379,7 +379,9 @@ namespace FastFood.User
             rCartItem.DataSource = listProductCart;
             rCartItem.DataBind();
 
-            Response.Redirect("Menu.aspx", false);
+            Response.Redirect(Request.QueryString["Id"] != null ? "Menu.aspx?id=" + int.Parse(Request.QueryString["Id"]) : "Menu.aspx", false);
+
+      
 
 
         }

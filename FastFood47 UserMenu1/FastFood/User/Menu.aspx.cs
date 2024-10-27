@@ -14,23 +14,22 @@ namespace FastFood.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (!IsPostBack)
                 {
-                    LoadCategories();
+                    //Show Filter Menu - Mostrar Filtro Menu.
+                    BusinessProducts businessProduct = new BusinessProducts();
+                    BusinessCategories businessCategory = new BusinessCategories();
 
-                    string id = Request.QueryString["id"];
-                    if (!string.IsNullOrEmpty(id))
-                    {
-                        LoadProducts(Convert.ToInt32(id)); // Carga productos de la categoría seleccionada
-                    }
-                    else
-                    {
-                        LoadProducts(0); // Carga todos al inicio
-                    }
+                    List<ProductD> listProduct = businessProduct.ListProductsActive();
+                    List<CategoryD> listCategory = businessCategory.ListCategoryActive();
+
+                    rCategory.DataSource = listCategory;
+                    rCategory.DataBind();
+                    rProducts.DataSource = listProduct;
+                    rProducts.DataBind();
+
                 }
             }
             catch (Exception ex)
@@ -38,48 +37,12 @@ namespace FastFood.User
                 Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx", false);
             }
+
         }
-
-        private void LoadProducts(int categoryId)
-        {
-            BusinessProducts businessProduct = new BusinessProducts();
-            List<ProductD> listProduct;
-
-            if (categoryId > 0)
-            {
-                listProduct = businessProduct.ListProductsActiveCAtegory(categoryId); // Método que debe existir
-            }
-            else
-            {
-                listProduct = businessProduct.ListProductsActive();
-            }
-
-            rProducts.DataSource = listProduct;
-            rProducts.DataBind();
-        }
-
-        private void LoadCategories()
-        {
-            BusinessCategories businessCategory = new BusinessCategories();
-            List<CategoryD> listCategory = businessCategory.ListCategoryActive();
-            rCategory.DataSource = listCategory;
-            rCategory.DataBind();
-        }
-
         public string LowerCase(object obj)
         {
             return obj.ToString().ToLower();
         }
-
-        protected void rCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "SelectCategory")
-            {
-                int categoryId = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("Menu.aspx?id=" + categoryId, false); // Redirige con el ID de la categoría
-            }
-        }
-
 
         //cart3
         protected void rProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -93,20 +56,31 @@ namespace FastFood.User
                     CartD cartProduct = new CartD();
                     var userId = Session["User"] as UsersD;
 
-                    //cart9
-                    //bool isCartItemUpdate = false;
 
+                    //Código existente para manejar el carrito...
                     int i = isItemExistInCart(Convert.ToInt32(e.CommandArgument));
 
                     if (i == 0)
                     {
+                        //Add First Product - Agregar Primer Producto
                         cartProduct.Quantity = 1;
                         cartProduct.User = new UsersD();
                         cartProduct.User.UserId = userId.UserId;
                         cartProduct.ProductId = new ProductD();
                         cartProduct.ProductId.ProductId = Convert.ToInt32(e.CommandArgument);
 
-                        business.AddProductCart(cartProduct);
+                        //Obtener CartId
+                        int cartId = business.AddProductCart(cartProduct);
+                        cartProduct.CartId = cartId;
+
+                        //obtener CategoryId del Product
+                        business.ShowCategoryIdProduct(cartProduct);
+                        Response.Redirect("Cart.aspx?id=" + cartProduct.ProductCategoryId, false);
+
+
+
+
+
 
 
 
@@ -115,6 +89,7 @@ namespace FastFood.User
                     }
                     else
                     {
+                        //Update Count Product - Actualizar Cantidad Producto
                         cartProduct.Quantity = i + 1;
                         cartProduct.User = new UsersD();
                         cartProduct.User.UserId = userId.UserId;
@@ -125,17 +100,17 @@ namespace FastFood.User
 
                     }
 
-                    CartD countProductCard = new CartD();
 
+                    //Cart Count/ Contador de Carrito
+                    CartD countProductCard = new CartD();
                     countProductCard.User = new UsersD();
                     countProductCard.User.UserId = userId.UserId;
-
                     business.cartCount(countProductCard);
                     Session.Add("cartCount", countProductCard.Quantity);
 
 
 
-
+                    //Add Message "Add Product" - Agregar Mensaje "Producto Agregado"
                     if (e.CommandName == "addToCart")
                     {
                         // Limpiar mensajes de todos los productos
@@ -192,6 +167,7 @@ namespace FastFood.User
         }
 
         //cart4
+        //Exist Product or No - Existe el producto o no en la DB.
         int isItemExistInCart(int productId)
         {
 
