@@ -44,7 +44,7 @@
                     <asp:Repeater ID="rCategory" runat="server">
                         <ItemTemplate>
                             <div class="col-md-6  ">
-                                <div class="box" style="background-color: rgba(1, 1, 1, 0.5)">
+                                <div class="box" style="background: linear-gradient(150deg, rgb(1, 1, 1) 50%, rgb(256, 256, 256, 0.5));">
                                     <div class="img-box">
                                         <a href="Menu.aspx?id=<%# Eval("CategoryId") %>">
                                             <img src="<%# Utils.GetImageUrlCategory(Eval("ImageUrl"))%>" alt="">

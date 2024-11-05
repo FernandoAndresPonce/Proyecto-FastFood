@@ -212,7 +212,7 @@ namespace BusinessLogic
             }
         }
 
-        public void UpdateProductCart(CartD ProductCart)
+        public int UpdateProductCart(CartD ProductCart)
         {
             data.clearParameter();
             try
@@ -222,7 +222,9 @@ namespace BusinessLogic
                 data.SetParameter("@ProductId", ProductCart.ProductId.ProductId);
                 data.SetParameter("@Quantity", ProductCart.Quantity);
                 data.SetParameter("@UserId", ProductCart.User.UserId);
-                data.executeAction();
+                return data.executeActionScalar();
+
+
             }
             catch (Exception ex)
             {

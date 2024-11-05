@@ -157,7 +157,7 @@
                                             </asp:RegularExpressionValidator>
                                             <div class="input-group">
                                                 <asp:TextBox ID="txtCardNo" runat="server" CssClass="form-control" placeholder="Valid card number"
-                                                    TextMode="Number">
+                                                    TextMode="SingleLine" MaxLength="16" onkeypress="return event.charCode >= 48 && event.charCode <= 57;">
                                                 </asp:TextBox>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text text-muted">
@@ -196,10 +196,10 @@
                                                     </asp:RegularExpressionValidator>
                                                     <div class="input-group">
                                                         <asp:TextBox ID="txtExpMonth" runat="server" CssClass="form-control" placeholder="MM"
-                                                            TextMode="Number">
+                                                           TextMode="SingleLine" MaxLength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57;">
                                                         </asp:TextBox>
                                                         <asp:TextBox ID="txtExpYear" runat="server" CssClass="form-control" placeholder="YYYY"
-                                                            TextMode="Number">
+                                                           TextMode="SingleLine" MaxLength="4" onkeypress="return event.charCode >= 48 && event.charCode <= 57;">
                                                         </asp:TextBox>
                                                     </div>
                                                 </div>
@@ -219,7 +219,7 @@
                                                         *
                                                     </asp:RegularExpressionValidator>
                                                     <asp:TextBox ID="txtCvv" runat="server" CssClass="form-control" placeholder="CVV No."
-                                                        TextMode="Number">
+                                                        TextMode="SingleLine" MaxLength="3" onkeypress="return event.charCode >= 48 && event.charCode <= 57;">
                                                     </asp:TextBox>
                                                 </div>
                                             </div>

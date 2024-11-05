@@ -76,7 +76,12 @@ namespace FastFood.User
                         cartProduct.ProductId = new ProductD();
                         cartProduct.ProductId.ProductId = Convert.ToInt32(e.CommandArgument);
 
-                        business.UpdateProductCart(cartProduct);
+                        int cartId = business.UpdateProductCart(cartProduct);
+                        cartProduct.CartId = cartId;
+
+                        business.ShowCategoryIdProduct(cartProduct);
+                        Response.Redirect("Cart.aspx?id=" + cartProduct.ProductCategoryId, false);
+                        Session["selectionQuantity"] = "the same product has been added again, Update the Quantity 🍔 !, Please 😊 ";
                     }
                     CartD countProductCard = new CartD();
                     countProductCard.User = new UsersD();

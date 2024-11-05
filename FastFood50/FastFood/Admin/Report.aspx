@@ -109,7 +109,7 @@
                                                             <asp:BoundField HeaderText="Order No. ↑↓" DataField="SrNo" SortExpression="SrNo">
                                                                 <HeaderStyle ForeColor="White" BackColor="Black" />
                                                             </asp:BoundField>
-                                                            <asp:BoundField HeaderText="Name ↑↓" DataField="UserName" SortExpression="UserName">
+                                                            <asp:BoundField HeaderText="User Name ↑↓" DataField="UserName" SortExpression="UserName">
                                                                 <HeaderStyle ForeColor="White" BackColor="Black" />
                                                             </asp:BoundField>
                                                             <asp:BoundField HeaderText="Email ↑↓" DataField="UserEmail" SortExpression="UserEmail">
