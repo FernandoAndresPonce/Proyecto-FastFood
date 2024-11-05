@@ -92,7 +92,7 @@
                                             <div class="mb-3" style="margin: 10px 5% 0px">
                                                 <asp:Label Text="Offer Percentage" runat="server" CssClass="form-label" />
                                                 <asp:RequiredFieldValidator ErrorMessage="(Required Offer Percentage)" CssClass="validacion" ControlToValidate="txtofferPercentage" runat="server" ID="rfvofferPercentage" Display="Dynamic" SetFocusOnError="true" />
-                                                <asp:RegularExpressionValidator ID="revOfferPercentage" ControlToValidate="txtofferPercentage" runat="server" ErrorMessage="(Does not allow negative numbers)" CssClass="validacion" ValidationExpression="^([1-9]\d*|0)$" Display="Dynamic" SetFocusOnError="true"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="revOfferPercentage" ControlToValidate="txtofferPercentage" runat="server" ErrorMessage="(Does not allow negative numbers or decimal)" CssClass="validacion" ValidationExpression="^([1-9]\d*|0)$" Display="Dynamic" SetFocusOnError="true"></asp:RegularExpressionValidator>
                                                 <asp:RangeValidator ErrorMessage="(Allowed range 0-100)" ControlToValidate="txtofferPercentage" Type="Currency" MinimumValue="-999" MaximumValue="100" runat="server" CssClass="validacion" Display="Dynamic" SetFocusOnError="true"></asp:RangeValidator>
                                                 <asp:TextBox ID="txtofferPercentage" runat="server" TextMode="Number" CssClass="form-control" Visible="false"></asp:TextBox>
                                             </div>
